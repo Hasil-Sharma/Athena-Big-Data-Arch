@@ -1,0 +1,13 @@
+source $REMOTE_SCRIPT_FOLDER/constants.sh
+
+FILE=$ZK_ENV_FILE
+
+cat <<EOM > /tmp/new.file
+ZOOKEEPER_HOME=$ZK_HOME
+ZOOKEEPER_CONF_FILE=$ZK_CONF_FILE
+export ZOOKEEPER_HOME
+export ZOOKEEPER_CONF_FILE
+EOM
+
+
+sudo mv /tmp/new.file $ZK_ENV_FILE
