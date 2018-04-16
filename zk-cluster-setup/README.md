@@ -16,5 +16,5 @@ Description of shell scripts:
 - `setup_zk_env_vars.sh` : Exports necessary environment variables
 - `setup_zk_server_script.sh` : Starts server on all the instances. Make sure this script is execute in the end
 
-To check whether quorum is working properly use `echo srve|nc <zk instance address> <default port>` on all the quorm member.
+To check whether quorum is working properly use `echo srvr|nc <zk instance address> <default port>` on all the quorm member.
 Note: In constants `aws_ip` should be private IP (preferrably)
