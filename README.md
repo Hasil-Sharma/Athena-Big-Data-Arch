@@ -3,14 +3,23 @@
 Specifications:
 - Java 7
 - Scala 2.11.12
-- sbt 0.12.16
+- sbt 0.13.16
 
 Running Sample Storm Project:
 
 `sbt clean compile assembly`
-
 `java -jar target/scala-2.11/athena-assembly-0.1-SNAPSHOT.jar`
 
+Running `TwitterLiveStream` to take json dump
+
+`sbt 'project util' clean assembly`
+
+On Spark Master execute the following command:
+```
+spark-submit --master <master-url> --class spark.TwitterLiveStream <jar-file> <output-location>
+```
+
+Output Location - Can be either an HDFS or S3 bucket path
 
 Links:
 - https://github.com/sbt/sbt-assembly

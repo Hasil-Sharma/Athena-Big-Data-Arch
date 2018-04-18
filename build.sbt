@@ -34,5 +34,9 @@ lazy val core = (
 lazy val utils = (
   AthenaSubProject("utils")
     settings (libraryDependencies ++= utilsDependencies)
+    settings (
+    assemblyJarName in assembly := "utils.jar"
+    )
+    settings assemblySettings
   )
 
