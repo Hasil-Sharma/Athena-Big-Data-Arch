@@ -3,6 +3,8 @@ package spark.meta
 import java.util.concurrent.LinkedBlockingQueue
 
 import spark.meta.{TwitterLiveStreamConfig => Configuration}
+import twitter4j._
+import twitter4j.conf.ConfigurationBuilder
 
 import scala.collection.mutable.ListBuffer
 

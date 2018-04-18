@@ -12,7 +12,7 @@ Running Sample Storm Project:
 
 Running `TwitterLiveStream` to take json dump
 
-`sbt 'project util' clean assembly`
+`sbt 'project utils' clean assembly`
 
 On Spark Master execute the following command:
 ```
