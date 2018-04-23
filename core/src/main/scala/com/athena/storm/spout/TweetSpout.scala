@@ -10,15 +10,15 @@ import org.apache.storm.topology.base.BaseRichSpout
 import org.apache.storm.tuple.{Fields, Values}
 import twitter4j.conf.ConfigurationBuilder
 import twitter4j.{StallWarning, Status, StatusDeletionNotice, StatusListener, TwitterObjectFactory, TwitterStream, TwitterStreamFactory}
-import com.athena.storm.meta.Configuration
+import com.athena.storm.meta.TwitterConfiguration
 class TweetSpout extends BaseRichSpout {
 
   var _collector: SpoutOutputCollector = _
   var _twitterStream: TwitterStream = _
-  var consumerKey: String = Configuration.CONSUMER_KEY
-  var consumerSecret: String = Configuration.CONSUMER_SECRET
-  var accessToken: String = Configuration.ACCESS_TOKEN
-  var accessTokenSecret: String = Configuration.ACCESS_TOKEN_SECRET
+  var consumerKey: String = TwitterConfiguration.CONSUMER_KEY
+  var consumerSecret: String = TwitterConfiguration.CONSUMER_SECRET
+  var accessToken: String = TwitterConfiguration.ACCESS_TOKEN
+  var accessTokenSecret: String = TwitterConfiguration.ACCESS_TOKEN_SECRET
   var queue: LinkedBlockingQueue[Status] = _
 
   override def open(conf: util.Map[_, _], context: TopologyContext, collector: SpoutOutputCollector): Unit = {

@@ -1,8 +1,10 @@
-import sbt._
+import sbt.{ExclusionRule, _}
 
 object Dependencies {
   val coreDependencies = Seq(
     "org.apache.storm" % "storm-core" % "1.2.1" % "provided",
+    "org.apache.kafka" %% "kafka" % "1.1.0" % "provided",
+    "org.apache.storm" % "storm-kafka-client" % "1.2.1" % "provided",
     "org.twitter4j" % "twitter4j-core" % "4.0.6",
     "org.twitter4j" % "twitter4j-stream" % "4.0.6"
   )
