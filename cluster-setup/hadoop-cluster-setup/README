@@ -1,0 +1,19 @@
+# Setting up N-Node hadoop cluster on EC2
+
+Before proceeding setup trusted ssh between your local computer and between ec2 instances refer to `setup_ssh_trust.sh` to get an idea.
+
+In `constants.sh` mention all the AWS instances. The first instance runs ResourceManager and NodeManager. Rest all auto configured as slaves. This behavior can be changed
+
+When you think ec2 is properly setup, change `$KEY` variable in `constants.sh`, and place your pem key in this directory. This is required to setup ssh trust between ec2 instances.
+
+After all this, issue following command:
+
+``` bash
+bash driver.sh setup_ssh_trust.sh download_hadoop.sh add_hadoop_variables.sh setup_core_site.sh setup_hdfs_site.sh setup_mapred_site.sh setup_slaves.sh setup_yarn_site.sh
+```
+
+
+# https://stackoverflow.com/questions/28260653/where-is-the-classpath-set-for-hadoop
+export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:share/hadoop/tools/lib/*
+# To add aws jar and other dependencies
+# export AWS_SECRET and AWS_ACCESS_KEY

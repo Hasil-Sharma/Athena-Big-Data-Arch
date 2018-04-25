@@ -1,0 +1,7 @@
+source $REMOTE_SCRIPT_FOLDER/constants.sh
+
+if [ ! -f $STORM_DOWNLOAD_ZIP ]; then
+  wget $STORM_DOWNLOAD_URL -O $STORM_DOWNLOAD_ZIP
+fi
+
+tar -xf $STORM_DOWNLOAD_ZIP

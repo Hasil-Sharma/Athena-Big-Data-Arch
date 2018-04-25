@@ -1,0 +1,7 @@
+source $REMOTE_SCRIPT_FOLDER/constants.sh
+
+cat <<EOF > $SPARK_HOME/conf/slaves
+${AWS_INSTANCES[1]}
+${AWS_INSTANCES[2]}
+${AWS_INSTANCES[3]}
+EOF

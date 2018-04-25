@@ -1,0 +1,16 @@
+source $REMOTE_SCRIPT_FOLDER/constants.sh
+
+cp $SPARK_ENV_SH.template $SPARK_ENV_SH
+
+cat <<EOM > $SPARK_ENV_SH
+export SPARK_WORKER_CORES=${SPARK_WORKER_CORES}
+export SPARK_PUBLIC_DNS=${CURRENT_INSTANCE_DNS}
+EOM
+
+FILE=$SPARK_VAR_FILE
+cat <<EOM > /tmp/new.file
+export SPARK_HOME=$SPARK_HOME
+export PATH=$PATH:$SPARK_HOME/bin
+EOM
+
+sudo mv /tmp/new.file $SPARK_VAR_FILE
