@@ -18,7 +18,7 @@ object KafkaWriteBolt {
 
     val kafkaBolt = new KafkaBolt()
       .withProducerProperties(props)
-      .withTopicSelector(new DefaultTopicSelector("test"))
+      .withTopicSelector(new DefaultTopicSelector(KafkaConfiguration.TOPIC_NAME))
       .withTupleToKafkaMapper(new FieldNameBasedTupleToKafkaMapper("_", "tweet"))
 
     kafkaBolt

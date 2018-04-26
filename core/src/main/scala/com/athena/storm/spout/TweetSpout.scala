@@ -27,8 +27,8 @@ class TweetSpout extends BaseRichSpout {
 
     val listener: StatusListener = new StatusListener {
       override def onStatus(status: Status): Unit = {
-        val rawJson: String =  TwitterObjectFactory.getRawJSON(status)
-        println(s"Offering: $rawJson")
+//        val rawJson: String =  TwitterObjectFactory.getRawJSON(status)
+//        println(s"Offering: $rawJson")
         queue.offer(status)
       }
 
@@ -65,7 +65,7 @@ class TweetSpout extends BaseRichSpout {
 
     _twitterStream = new TwitterStreamFactory(configBuilder.build()).getInstance()
     _twitterStream.addListener(listener)
-    _twitterStream.sample()
+    _twitterStream.sample("en")
   }
 
   override def nextTuple(): Unit = {
