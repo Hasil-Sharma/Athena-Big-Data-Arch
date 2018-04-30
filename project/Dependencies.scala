@@ -14,9 +14,14 @@ object Dependencies {
 
   val utilsDependencies = Seq(
     "org.apache.spark" %% "spark-core" % "2.1.2" % "provided",
-    "org.apache.spark" %% "spark-sql" % "2.1.2" % "provided",
+    "org.apache.spark" %% "spark-sql" % "2.1.2"  % "provided",
     "org.apache.hadoop" % "hadoop-aws" % "2.7.0" % "provided",
-    "org.twitter4j" % "twitter4j-core" % "4.0.6" % "provided",
-    "org.twitter4j" % "twitter4j-stream" % "4.0.6" % "provided"
+    "org.twitter4j" % "twitter4j-core" % "4.0.6",
+    "org.twitter4j" % "twitter4j-stream" % "4.0.6",
+    "org.deeplearning4j" % "deeplearning4j-core" % "1.0.0-alpha" ,
+    "org.deeplearning4j" % "deeplearning4j-nlp" % "1.0.0-alpha" ,
+    "org.nd4j" % "nd4j-native-platform" % "1.0.0-alpha" ,
+    "org.datavec" % "datavec-api" % "1.0.0-alpha",
+    "org.deeplearning4j" %% "deeplearning4j-ui" % "1.0.0-alpha"
   )
 }

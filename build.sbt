@@ -20,7 +20,7 @@ lazy val athena = (
     settings (commonSettings: _*)
     settings (libraryDependencies ++= coreDependencies)
     settings (
-      mainClass in assembly := Some("com.athena.driver.TwitterTopology")
+//      mainClass in assembly := Some("com.athena.driver.TwitterTopology")
     )
     settings assemblySettings
   )
