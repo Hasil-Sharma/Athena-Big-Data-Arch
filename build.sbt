@@ -10,7 +10,7 @@ lazy val assemblySettings = Seq(
     case PathList("META-INF", xs@_*) => MergeStrategy.discard
     case _ => MergeStrategy.first
   },
-  assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = true, includeDependency = false)
+  assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false, includeDependency = false)
 )
 
 lazy val athena = (

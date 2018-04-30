@@ -1,6 +1,6 @@
 package com.athena.driver
 
-import com.athena.storm.bolt.{KafkaWriteBolt, TweetProcessingBolt}
+import com.athena.storm.bolt.{ESWriteBolt, KafkaWriteBolt, TweetProcessingBolt}
 import com.athena.storm.spout.TweetSpout
 import org.apache.storm.{Config, LocalCluster, StormSubmitter}
 import org.apache.storm.topology.TopologyBuilder
@@ -10,12 +10,15 @@ object TwitterTopology {
   def main(args: Array[String]): Unit = {
     val builder = new TopologyBuilder()
 
-    builder.setSpout("tweet-spout", new TweetSpout(), 1)
+    builder
+      .setSpout("tweet-spout", new TweetSpout(), 1)
     builder
       .setBolt("tweet-processing-bolt", new TweetProcessingBolt(), 2)
       .shuffleGrouping("tweet-spout")
 
-    builder.setBolt("forwardToKafkaBolt", KafkaWriteBolt.getKafkaBolt(), 1).shuffleGrouping("tweet-processing-bolt")
+    builder
+      .setBolt("forwardToES", ESWriteBolt.getESBolt(), 1)
+      .shuffleGrouping("tweet-processing-bolt")
 
     val conf = new Config()
     conf.setDebug(false)
