@@ -112,6 +112,7 @@ public class AthenaIterator implements DataSetIterator {
         return new DataSet(features, labels, featuresMask, labelsMask);
     }
 
+
     @Override
     public int totalExamples() {
         throw new UnsupportedOperationException();

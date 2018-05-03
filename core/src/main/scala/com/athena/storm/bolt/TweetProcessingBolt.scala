@@ -21,6 +21,7 @@ class TweetProcessingBolt extends BaseRichBolt{
   override def execute(input: Tuple): Unit = {
     val tweetStatus: Status = input.getValueByField("tweet-status").asInstanceOf[Status]
     val tweet = statusToJson.getJson(tweetStatus)
+
     _collector.emit(new Values(tweet))
   }
 

@@ -40,20 +40,17 @@ public class AthenaLSTMTrain {
         AthenaIterator trainingData = new AthenaIterator(TRAIN_INPUT, wordVectors, batchSize, truncateReviewsToLength);
         Nd4j.getMemoryManager().setAutoGcWindow(10000);
         MultiLayerConfiguration conf = new NeuralNetConfiguration.Builder()
-                .updater(new Adam(1e-3))
+                .updater(new Adam(2e-2))
                 .weightInit(WeightInit.XAVIER)
                 .l2(1e-5)
                 .gradientNormalization(GradientNormalization.ClipElementWiseAbsoluteValue).gradientNormalizationThreshold(1.0)
                 .trainingWorkspaceMode(WorkspaceMode.SEPARATE).inferenceWorkspaceMode(WorkspaceMode.SEPARATE)
                 .list()
-                .layer(0, new GravesLSTM.Builder().nIn(vectorSize).nOut(250)
+                .layer(0, new GravesLSTM.Builder().nIn(vectorSize).nOut(256)
                         .activation(Activation.TANH)
                         .build())
-                .layer(1, new GravesLSTM.Builder().nIn(250).nOut(250)
-                        .activation(Activation.TANH)
-                        .build())
-                .layer(2, new RnnOutputLayer.Builder().activation(Activation.SIGMOID)
-                        .lossFunction(LossFunctions.LossFunction.MCXENT).nIn(250).nOut(2).build())
+                .layer(1, new RnnOutputLayer.Builder().activation(Activation.SIGMOID)
+                        .lossFunction(LossFunctions.LossFunction.MCXENT).nIn(256).nOut(2).build())
                 .pretrain(false).backprop(true).build();
 
         MultiLayerNetwork net = new MultiLayerNetwork(conf);
