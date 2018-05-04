@@ -33,7 +33,7 @@ object TwitterTopology {
       conf.setMaxTaskParallelism(3)
       val cluster = new LocalCluster
       cluster.submitTopology("twitter-topology", conf, builder.createTopology())
-      Thread.sleep(100000)
+      Thread.sleep(1000000)
       cluster.shutdown()
     }
   }
