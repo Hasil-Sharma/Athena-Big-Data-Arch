@@ -1,5 +1,6 @@
 # Athena
 
+Demo Video: https://www.youtube.com/watch?v=EP59ny__mq4
 Specifications:
 - Java 7
 - Scala 2.11.12
@@ -20,6 +21,7 @@ spark-submit --master <master-url> --class spark.TwitterLiveStream <jar-file> <o
 ```
 
 Output Location - Can be either an HDFS or S3 bucket path
+
 
 Links:
 - https://github.com/sbt/sbt-assembly
