@@ -1,6 +1,9 @@
 # Athena
 
 Demo Video: https://www.youtube.com/watch?v=EP59ny__mq4
+
+Real time tweet monitoring system to identify toxic tweets and mapping them on Kibana Map accorind to randomized locations.
+
 Specifications:
 - Java 7
 - Scala 2.11.12
