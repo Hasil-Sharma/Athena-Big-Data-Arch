@@ -10,7 +10,7 @@ Specifications:
 - Java 7
 - Scala 2.11.12
 - sbt 0.13.16
-
+- storm 1.2.1
 Running Sample Storm Project:
 
 `sbt clean compile assembly`
