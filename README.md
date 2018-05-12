@@ -11,6 +11,7 @@ Specifications:
 - Scala 2.11.12
 - sbt 0.13.16
 - storm 1.2.1
+- Amazon Lambda
 Running Sample Storm Project:
 
 `sbt clean compile assembly`
