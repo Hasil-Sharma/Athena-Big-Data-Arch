@@ -12,6 +12,7 @@ Specifications:
 - sbt 0.13.16
 - storm 1.2.1
 - Amazon Lambda
+- Keras
 Running Sample Storm Project:
 
 `sbt clean compile assembly`
