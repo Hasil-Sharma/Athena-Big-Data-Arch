@@ -13,6 +13,7 @@ Specifications:
 - storm 1.2.1
 - Amazon Lambda
 - Keras
+- Amazon Web Services
 Running Sample Storm Project:
 
 `sbt clean compile assembly`
